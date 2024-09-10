@@ -29,4 +29,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(6, calculator.add("1\n2,3"), "String with new lines as delimiters should return the sum of numbers");
     }
+    // Test for custom delimiter
+    @Test
+    public void testCustomDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(3, calculator.add("//;\n1;2"), "String with a custom delimiter should return the sum of numbers");
+    }
 }
