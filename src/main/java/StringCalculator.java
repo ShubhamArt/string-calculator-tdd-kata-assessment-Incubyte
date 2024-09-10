@@ -10,7 +10,7 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        // Default return 0 for now, to be implemented
-        return 0;
+        // If there is only one number, return that number
+        return Integer.parseInt(numbers);
     }
 }
