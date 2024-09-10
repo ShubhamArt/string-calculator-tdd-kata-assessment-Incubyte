@@ -10,8 +10,8 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        // Split the input by commas
-        String[] tokens = numbers.split(",");
+        // Split the input by commas or new lines
+        String[] tokens = numbers.split("[,\n]");
         int sum = 0;
 
         // Process each token

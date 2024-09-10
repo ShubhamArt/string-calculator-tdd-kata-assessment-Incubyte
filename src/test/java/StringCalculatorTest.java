@@ -23,4 +23,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(6, calculator.add("1,5"), "String with two numbers should return their sum");
     }
+    // Test for new line delimiters
+    @Test
+    public void testNewLineDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"), "String with new lines as delimiters should return the sum of numbers");
+    }
 }
