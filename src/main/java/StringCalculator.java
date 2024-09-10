@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
     /**
      * Adds the numbers in the provided string.
@@ -25,10 +28,25 @@ public class StringCalculator {
         String[] tokens = numbers.split(delimiter);
         int sum = 0;
 
+        List<Integer> negatives = new ArrayList<>();
 
         // Process each token
-        for (String token : tokens) {
-            sum += Integer.parseInt(token);
+        for (String part : tokens) {
+            try {
+                int number = Integer.parseInt(part);
+                if (number < 0) {
+                    negatives.add(number);
+                } else {
+                    sum += number;
+                }
+            } catch (NumberFormatException e) {
+                // Handle the case where a part isn't a valid number
+                throw new IllegalArgumentException("Invalid number format: " + part, e);
+            }
+        }
+
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException("Negative numbers not allowed: " + String.join(", ", negatives.toString()));
         }
 
         return sum;
