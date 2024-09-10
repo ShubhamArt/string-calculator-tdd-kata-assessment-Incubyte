@@ -10,7 +10,15 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        // If there is only one number, return that number
-        return Integer.parseInt(numbers);
+        // Split the input by commas
+        String[] tokens = numbers.split(",");
+        int sum = 0;
+
+        // Process each token
+        for (String token : tokens) {
+            sum += Integer.parseInt(token);
+        }
+
+        return sum;
     }
 }
